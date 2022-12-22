@@ -303,7 +303,7 @@ components:
           type: string
   requestBodies:
     task:
-      description: task object that needs to be added to the store
+      description: task object that needs to be added to the task list
       content:
         application/json:
           schema:
@@ -311,11 +311,3 @@ components:
         application/xml:
           schema:
             $ref: "#/components/schemas/task"
-    task_status:
-      description: List of task status
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/task_status"
