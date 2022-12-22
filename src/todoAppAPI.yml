@@ -215,7 +215,7 @@ paths:
             application/xml:
               schema:
                 $ref: "#/components/schemas/api_response"
-  /tasks/findByStatus:
+  /task/findByStatus:
     get:
       tags:
         - task
