@@ -1,0 +1,321 @@
+openapi: 3.0.3
+info:
+  title: TodoApp
+  version: 1.0.11
+servers:
+  - url: https://todoapp
+tags:
+  - name: task
+paths:
+  /task:
+    post:
+      tags:
+        - task
+      summary: Add a new task
+      description: Add a new task
+      operationId: addTask
+      requestBody:
+        description: Create a new task
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/task"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/task"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/task"
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/task"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/task"
+        "405":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+    get:
+      tags:
+        - task
+      summary: Get all tasks
+      description: get all tasks
+      operationId: getAllTasks
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/task"
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/task"
+        "400":
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+  /task/{task_id}:
+    get:
+      tags:
+        - task
+      summary: Get a task
+      description: Get a task by Id
+      operationId: getTask
+      parameters:
+        - name: task_id
+          in: path
+          description: task id to get
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/task"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/task"
+        "400":
+          description: Invalid ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+        "404":
+          description: task not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+        "405":
+          description: Validation exception
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+    put:
+      tags:
+        - task
+      summary: Update an existing task
+      description: Update an existing task by Id
+      operationId: updateTask
+      parameters:
+        - name: task_id
+          in: path
+          description: task id to update
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Update a task
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/task"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/task"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/task"
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/task"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/task"
+        "400":
+          description: Invalid ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+        "404":
+          description: task not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+        "405":
+          description: Validation exception
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+    delete:
+      tags:
+        - task
+      summary: Deletes a task
+      description: delete a task
+      operationId: deleteTask
+      parameters:
+        - name: task_id
+          in: path
+          description: task id to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "400":
+          description: Invalid task value
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+  /tasks/findByStatus:
+    get:
+      tags:
+        - task
+      summary: Get tasks by status id
+      description: return all tasks have the same status
+      operationId: getTasksByStatus
+      parameters:
+        - name: task_status_id
+          in: query
+          description: Task_status_id values that need to be considered for filter
+          required: false
+          explode: true
+          schema:
+            default: 0
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/task"
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/task"
+        "400":
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api_response"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/api_response"
+components:
+  schemas:
+    task:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 15
+        title:
+          type: string
+          example: learn reactjs
+        description:
+          type: string
+          example: learn reactjs on udemy everyday
+        task_status_id:
+          type: integer
+          format: int64
+          items:
+            $ref: "#/components/schemas/task_status"
+        created_at:
+          type: string
+          example: 2020-01-01 10:10:10
+        updated_at:
+          type: string
+          example: 2020-01-01 10:10:10
+    task_status:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: done
+    api_response:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+  requestBodies:
+    task:
+      description: task object that needs to be added to the store
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/task"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/task"
+    task_status:
+      description: List of task status
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/task_status"
