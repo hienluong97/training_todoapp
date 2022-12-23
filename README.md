@@ -48,11 +48,9 @@ To clone and run this application, you'll need Git and Node.js (which comes with
 
 <!-- Development environment-->
 ## Development environment
-```
-・Environment: NodeJS and NPM
+- Environment: NodeJS and NPM
 ・Languages: JavaScript, CSS
 ・Framework: Reactjs18
-```
 ## Tools and related documents
 
 * [VS code ](https://code.visualstudio.com/)
