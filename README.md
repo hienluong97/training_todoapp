@@ -48,9 +48,9 @@ To clone and run this application, you'll need Git and Node.js (which comes with
 
 <!-- Development environment-->
 ## Development environment
-- Environment: NodeJS and NPM
-・Languages: JavaScript, CSS
-・Framework: Reactjs18
+*  Environment: NodeJS and NPM
+* Languages: JavaScript, CSS
+*  Framework: Reactjs18
 ## Tools and related documents
 
 * [VS code ](https://code.visualstudio.com/)
@@ -81,13 +81,12 @@ To clone and run this application, you'll need Git and Node.js (which comes with
 #### Components
 - Start components names with a letter, use `PascalCase` for names.
 ### Formatting Rules
-```
 [JavaScript, CSS] 
 
-• Use Prettier.
-• Indentation with spaces.
-• Two spaces on a tab
-```
+* Use Prettier.
+* Indentation with spaces.
+* Two spaces on a tab
+
 
 ### Comment rules
 Following JavaScript comments JSDoc rules。[reference](https://www.typescriptlang.org/ja/docs/handbook/jsdoc-supported-types.html)
@@ -124,10 +123,10 @@ $ git pull origin {branch_name}
 ### How to write a commit message
 ```
 # Specify the issue ex: design fix #51
-git commit -m "content #issue number"
+$ git commit -m "content #issue number"
 
 # Close a completed issue.
-git commit -m "content close #issue number"
+$ git commit -m "content close #issue number"
 ```
 ## Debug and maintenance rules
 -flow-
