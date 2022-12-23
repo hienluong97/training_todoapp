@@ -54,7 +54,7 @@ To clone and run this application, you'll need Git and Node.js (which comes with
 <!-- Coding convention -->
 ## Coding conventions
 
-### naming
+### Naming
 #### Variables
 - Start variable names,  function names with a letter, use `camelCase` for names.
 - Boolean variables are usually prefixed with `is` or `has`.
