@@ -10,39 +10,32 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#installation">Installation</a></li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#coding-conventions">Coding conventions</a>
       <ul>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#naming">Naming</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgments">Used tool</a></li>
-    <li><a href="#acknowledgments">Extensions</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#tools-used">Tools Used</a></li>
+    <li><a href="#extensions">Extensions</a></li>
+    <li><a href="#related-documents">Related documents</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-* A complete todo application with CRUD.
+* A todo application with CRUD.
 
 ### Built With
 
-* [![React][React.js]][React-url]
+[![React][React.js]][React-url]
 
-<!-- GETTING STARTED -->
-## Getting Started
+<!-- Installation -->
 
-This is the instructions to set up your project locally.
-You can start the project on your own by following the guide below.
+## Installation
 
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+To clone and run this application, you'll need Git and Node.js (which comes with npm) installed on your computer. From your command line:
 
 1. Clone the repo
    ```sh
@@ -56,75 +49,46 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm start
    ```
+4. Open the code and start customizing!
+   Your site is now running at http://localhost:3000
+<!-- Coding convention -->
+## Coding conventions
 
-<!-- USAGE EXAMPLES -->
-## Usage
+### naming
+#### Variables
+- Start variable names,  function names with a letter, use `camelCase` for names.
+- Boolean variables are usually prefixed with `is` or `has`.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+#### Functions
+- Start variable names,  function names with a letter, use `camelCase` for names.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+#### Constant
+- Define constants at the top of your file, function or class.
+- `UPPER_SNAKE_CASE` is used .
 
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+#### Classes
+- Use one dash and lowercase letters for your class names, ex: `form_button`.
+- Keep classes as short as possible, but prefix them accordingly when they belong to a specific component.
+- Namespace component states by using a `.is_` prefix. (ex: `.is_open`, `.is_collapsed`, `.is_loading`)
 
 <!-- Tools Used -->
 ## Tools Used
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
 * [VS code ](https://code.visualstudio.com/)
-* [Open API](https://swagger.io/)
+* [Open API](https://swagger.io/)  3.0.3
 * [Font Awesome](https://fontawesome.com)
 
 <!-- Extensions -->
 ## Extensions
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [Swagger Viewer ](https://marketplace.visualstudio.com/items?itemName=Arjun.swagger-viewer)
 * [OpenAPI Swagger Editor](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi)
 * [OpenApi Snippets](https://marketplace.visualstudio.com/items?itemName=proohit.openapi-snippets)
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [React documentation ](https://reactjs.org/)
+<!-- Related documents -->
+## Related documents
+- [React documentation ](https://reactjs.org/)
 
 
 
