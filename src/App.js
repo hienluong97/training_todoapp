@@ -1,10 +1,16 @@
-import './App.css';
-import Todolist from './components/todolist/Todolist';
+import "./App.scss";
+import InputForm from "./components/InputForm/InputForm";
+import TaskList from "./components/TaskList/TaskList";
+import TasksLeft from "./components/TasksLeft/TasksLeft";
+import Title from "./components/Title/Title";
 
 function App() {
   return (
     <div className="App">
-    <Todolist/>
+      <Title />
+      <InputForm />
+      <TaskList />
+      <TasksLeft />
     </div>
   );
 }

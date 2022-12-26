@@ -1,0 +1,70 @@
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffff;
+  margin-bottom: 12px;
+  padding: 12px 12px;
+  border-radius: 4px;
+
+  &_checkbox {
+    width: 20px;
+    height: 20px;
+    /* accent-color: cornflowerblue; */
+  }
+
+  &_content {
+    flex-grow: 1;
+  }
+
+  &_title {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    resize: none;
+    height: 20px;
+  }
+
+  &_createTime {
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  &_btn {
+    &_edit {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    &_edit:hover {
+      opacity: 1;
+    }
+
+    &_delete {
+      margin-left: 8px;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    &_delete:hover {
+      opacity: 1;
+    }
+
+    &_save {
+      background-color: cornflowerblue;
+      color: #ffff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    &_save:hover {
+      background-color: rgb(49, 112, 228);
+    }
+  }
+}
