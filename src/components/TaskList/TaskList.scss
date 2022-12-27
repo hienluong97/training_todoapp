@@ -1,4 +1,5 @@
 .task_list {
-  padding: 24px 0px;
+  max-height: 460px;
+  overflow-y: auto;
   background-color: #ecedf6ff;
 }

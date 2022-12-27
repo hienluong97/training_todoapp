@@ -1,6 +1,6 @@
-.App {
+.app {
   width: 500px;
-  min-height: 70vh;
+  height: 720px;
   padding: 40px 24px;
   border-radius: 8px;
   position: fixed;
@@ -9,4 +9,37 @@
   transform: translateX(50%);
   background-color: #ecedf6ff;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
+
+  &_title {
+    font-size: 38px;
+    text-align: center;
+    text-shadow: -1px 0 rgb(47, 113, 237), 0 1px rgb(47, 113, 237),
+      1px 0 rgb(47, 113, 237), 0 -1px rgb(47, 113, 237);
+  }
+}
+
+// custom scroll bar
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(218, 216, 216);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(155, 154, 154);
 }

@@ -29,6 +29,10 @@
     height: 20px;
   }
 
+  &_title:focus .task {
+    background-color: rgb(49, 112, 228);
+  }
+
   &_createTime {
     font-size: 14px;
     font-weight: 300;
@@ -38,7 +42,8 @@
   &_btn {
     &_edit {
       cursor: pointer;
-      opacity: 0.7;
+      opacity: 0.6;
+      transition: 0.3s;
     }
 
     &_edit:hover {
@@ -48,7 +53,8 @@
     &_delete {
       margin-left: 8px;
       cursor: pointer;
-      opacity: 0.7;
+      opacity: 0.6;
+      transition: 0.3s;
     }
 
     &_delete:hover {
@@ -61,6 +67,7 @@
       padding: 4px 8px;
       border-radius: 4px;
       cursor: pointer;
+      transition: 0.3s;
     }
 
     &_save:hover {

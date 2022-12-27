@@ -8,6 +8,9 @@ function TaskList() {
       <Task />
       <Task />
       <Task />
+      <Task />
+      <Task />
+      <Task />
     </div>
   );
 }
