@@ -1,5 +1,7 @@
-.tasks_tag {
+.task_manager {
   margin-top: 12px;
+}
+.task_tag {
   display: inline-block;
   font-size: 14px;
   font-weight: 300;
@@ -7,11 +9,12 @@
   border-radius: 4px;
 }
 
-.tasks_left {
+.task_left {
   color: #ffff;
   background-color: rgb(228, 92, 74);
 }
-.tasks_done {
+
+.task_done {
   color: #ffff;
   background-color: #3aaf3c;
 }
