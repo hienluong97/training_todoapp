@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./TaskManager.scss";
 
+/**
+ * This component to show number of completed tasks, incompleted tasks
+ * @param {array} taskList A list of tasks
+ * @property {number} tasksDone  Number of completed tasks
+ * @property {fucntion} setTasksDone  Function to set number of completed tasks when user change status of task
+ * @property {number} tasksLeft  Number of incompleted tasks
+ * @property {fucntion} setTasksLeft  Function to set number of incompleted tasks when user change status of task
+ * @returns Number of completed tasks, incompleted tasks
+ */
+
 function TaskManager({ taskList }) {
   const [tasksDone, setTasksDone] = useState();
   const [tasksLeft, setTasksLeft] = useState();

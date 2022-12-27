@@ -2,6 +2,15 @@ import React from "react";
 import Task from "../Task/Task";
 import "./TaskList.scss";
 
+/**
+ *  This component to render a list of tasks
+ * @param {array} taskList List task
+ * @param {function} handleDeleteTask Handle when click delete icon
+ * @param {function} handleEditTask Handle when click edit icon
+ * @param {function} handleChangeTaskStastus Handle when status of task is updated
+ * @returns List of task component
+ */
+
 function TaskList({
   taskList,
   handleDeleteTask,

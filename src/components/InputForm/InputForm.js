@@ -2,6 +2,16 @@ import React, { useRef } from "react";
 import "./InputForm.scss";
 import { v4 as uuidv4 } from "uuid";
 
+/**
+ * This component to render a input form for user to add a new task
+ * @param {array} taskList A list of tasks
+ * @param {fucntion} setTaskList Set task list when task updated
+ * @property {fucntion} handleClickAddTask This fuction handle when user click add task button
+ * @property {fucntion} handleOnchange   This fuction to hide error message when typing
+ * @property {fucntion} handleOnBlur This fuction hide error message when bluring
+ * @returns A input form
+ */
+
 function InputForm({ taskList, setTaskList }) {
   const inputRef = useRef();
   const errorRef = useRef();
@@ -29,12 +39,10 @@ function InputForm({ taskList, setTaskList }) {
     return;
   };
 
-  // Hide error message when typing↓
   const handleOnchange = () => {
     errorRef.current.innerHTML = "";
   };
 
-  // Hide error message when bluring↓
   const handleOnBlur = () => {
     errorRef.current.innerHTML = "";
   };
