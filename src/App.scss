@@ -1,20 +1,21 @@
+@import "./common/mixin/media";
 .app {
-  width: 500px;
-  height: 720px;
-  padding: 40px 24px;
-  border-radius: 8px;
-  position: fixed;
-  top: 0;
-  right: 50%;
-  transform: translateX(50%);
-  background-color: #ecedf6ff;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
+  padding: 40px 12px;
 
-  &_title {
+  @include Responsive(tablet) {
+    padding: 80px 80px;
+  }
+
+  @include Responsive(pc) {
+    padding: 100px 200px;
+  }
+
+  .app_title {
     font-size: 38px;
     text-align: center;
     text-shadow: -1px 0 rgb(47, 113, 237), 0 1px rgb(47, 113, 237),
       1px 0 rgb(47, 113, 237), 0 -1px rgb(47, 113, 237);
+    margin-bottom: 2rem;
   }
 }
 
