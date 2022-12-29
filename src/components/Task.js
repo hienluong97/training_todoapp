@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./Task.scss";
+import "../common/component/_task.scss";
 import TextArea from "textarea-autosize-reactjs";
-import { formatTime } from "../../utils/functions";
+import { formatTime } from "../utils/functions";
 
 /**
  * This component to render a task
@@ -21,6 +21,7 @@ function Task({
   const [disabled, setDisabled] = useState(true);
   const [inputValue, setInputValue] = useState(task.title);
   const inputRef = useRef();
+  const errorRef = useRef();
 
   //   Set cursor at the end in the textarea when focus
   useEffect(() => {
@@ -33,66 +34,77 @@ function Task({
     }
   }, [disabled]);
 
+  const handleBlur = (e) => {
+    if (!disabled) {
+      errorRef.current.innerHTML = "Please save that!";
+    } else {
+      return;
+    }
+  };
+
   return (
-    <div className={task.status ? "task task_completed" : "task"}>
-      <input
-        type="checkbox"
-        className="task_checkbox"
-        checked={task.status}
-        onChange={() => {
-          handleChangeTaskStastus(task.id);
-        }}
-      />
-      <div className="task_content">
-        <TextArea
-          className={task.status ? "task_title line-through" : "task_title"}
-          ref={inputRef}
-          value={inputValue}
-          disabled={disabled}
-          onChange={(e) => {
-            setInputValue(e.target.value);
-          }}
-          onBlur={() => {
-            setDisabled(true);
-            handleEditTask(task.id, inputRef.current.value);
+    <>
+      <div className={task.status ? "task task_completed" : "task"}>
+        <input
+          type="checkbox"
+          className="task_checkbox"
+          checked={task.status}
+          onChange={() => {
+            handleChangeTaskStastus(task.id);
           }}
         />
-        <span className="task_createTime">{formatTime(task.created_at)}</span>
-      </div>
-      <div className="task_btn">
-        {disabled ? (
-          <span
-            className="task_btn_edit"
-            onClick={() => {
-              setDisabled(false);
+        <div className="task_content">
+          <TextArea
+            className={task.status ? "task_title line-through" : "task_title"}
+            ref={inputRef}
+            value={inputValue}
+            disabled={disabled}
+            onChange={(e) => {
+              setInputValue(e.target.value);
             }}
-          >
-            <EditIcon />
-          </span>
-        ) : (
-          <span
-            className="task_btn_save"
-            onMouseDown={() => {
-              setDisabled(true);
-              handleEditTask(task.id, inputRef.current.value);
+            onBlur={() => {
+              handleBlur();
             }}
-          >
-            save
-          </span>
-        )}
+          />
+          <span className="task_createTime">{formatTime(task.created_at)}</span>
+        </div>
 
-        {disabled ? (
-          <span
-            className="task_btn_delete"
-            onClick={() => {
-              handleDeleteTask(task.id);
-            }}
-          >
-            <DeleteIcon />
-          </span>
-        ) : null}
+        <div className="task_btn">
+          {disabled ? (
+            <>
+              <span
+                className="task_btn_edit"
+                onClick={() => {
+                  setDisabled(false);
+                }}
+              >
+                <EditIcon />
+              </span>
+              <span
+                className="task_btn_delete"
+                onClick={() => {
+                  handleDeleteTask(task.id);
+                }}
+              >
+                <DeleteIcon />
+              </span>
+            </>
+          ) : (
+            <span
+              className="task_btn_save"
+              onClick={() => {
+                setDisabled(true);
+                handleEditTask(task.id, inputRef.current.value);
+                errorRef.current.innerHTML = "";
+              }}
+            >
+              Save
+            </span>
+          )}
+        </div>
       </div>
-    </div>
+      <span className="task_error" ref={errorRef}></span>
+    </>
   );
 }
 

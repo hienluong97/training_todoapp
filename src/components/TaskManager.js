@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./TaskManager.scss";
+import "../common/component/_taskManager.scss";
 
 /**
  * This component to show number of completed tasks, incompleted tasks
