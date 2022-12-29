@@ -1,3 +1,4 @@
+@import "../variables";
 .task_manager {
   margin-top: 12px;
   .task_tag {
@@ -15,6 +16,6 @@
 
   .task_done {
     color: #ffff;
-    background-color: #3aaf3c;
+    background-color: $color_task_done;
   }
 }

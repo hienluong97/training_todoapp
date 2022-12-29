@@ -1,3 +1,5 @@
+@import "../variables";
+@import "../mixins/media";
 .task {
   display: flex;
   align-items: center;
@@ -6,9 +8,16 @@
   padding: 12px 12px;
   border-radius: 4px;
   transition: 0.3s;
+  margin-bottom: 12px;
 
   .task_checkbox {
-    transform: scale(calc(18 / 13));
+    transform: scale(calc(16 / 13));
+    @include Responsive(tablet) {
+      transform: scale(calc(18 / 13));
+    }
+    @include Responsive(pc) {
+      transform: scale(calc(18 / 13));
+    }
   }
 
   .task_content {
@@ -39,6 +48,7 @@
     display: flex;
     justify-content: right;
     min-width: 48px;
+
     .task_btn_edit {
       cursor: pointer;
       opacity: 0.6;
@@ -59,7 +69,7 @@
     }
 
     .task_btn_save {
-      background-color: rgb(56, 120, 240);
+      background-color: $btn_blue;
       color: #ffff;
       padding: 4px 8px;
       border-radius: 4px;
@@ -69,7 +79,7 @@
     }
 
     .task_btn_save:hover {
-      background-color: rgb(37, 103, 226);
+      background-color: $btn_hover_blue;
       opacity: 1;
     }
   }
@@ -80,14 +90,5 @@
 }
 
 .task_completed {
-  background-color: #3aaf3c;
-}
-
-.task_error {
-  display: block;
-  margin-top: 4px;
-  margin-bottom: 12px;
-  color: red;
-  font-size: 12px;
-  font-weight: 300;
+  background-color: $color_task_done;
 }

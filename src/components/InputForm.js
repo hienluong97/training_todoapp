@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "../common/component/_inputForm.scss";
+import "../common/components/_inputForm.scss";
 import { v4 as uuidv4 } from "uuid";
 
 /**
@@ -16,7 +16,7 @@ function InputForm({ taskList, setTaskList }) {
   const inputRef = useRef();
   const errorRef = useRef();
 
-  const handleClickAddTask = () => {
+  const handleClickAddTask = (e) => {
     const hasValue = inputRef.current?.value.trim();
     // Check value of input befor submitting↓
     if (hasValue) {
@@ -39,6 +39,14 @@ function InputForm({ taskList, setTaskList }) {
     return;
   };
 
+  const handleOnKeyPress = (event) => {
+    if (event.key === "Enter") {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      handleClickAddTask();
+    }
+  };
+
   const handleOnchange = () => {
     errorRef.current.innerHTML = "";
   };
@@ -54,8 +62,15 @@ function InputForm({ taskList, setTaskList }) {
           className="form_input"
           onChange={handleOnchange}
           onBlur={handleOnBlur}
+          onKeyDown={(e) => {
+            handleOnKeyPress(e);
+          }}
         />
-        <button className="form_submit_btn" onClick={handleClickAddTask}>
+        <button
+          type="submit"
+          className="form_submit_btn"
+          onClick={handleClickAddTask}
+        >
           Add task
         </button>
       </div>

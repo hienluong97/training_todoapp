@@ -1,3 +1,4 @@
+@import "../variables";
 .form {
   display: flex;
   justify-content: space-between;
@@ -5,7 +6,7 @@
   gap: 6px;
   padding: 6px;
   border-radius: 4px;
-  border: solid 1px cornflowerblue;
+  border: solid 1px $btn_blue;
 
   .form_input {
     width: 100%;
@@ -19,7 +20,7 @@
     width: 120px;
     padding: 7px 8px;
     font-size: 16px;
-    background-color: rgb(56, 120, 240);
+    background-color: $btn_blue;
     color: #ffff;
     border-radius: 4px;
     border: none;
@@ -29,12 +30,12 @@
   }
 
   .form_submit_btn:hover {
-    background-color: rgb(37, 103, 226);
+    background-color: $btn_hover_blue;
   }
 }
 
 .form_error {
-  color: red;
+  color: $color_text_error;
   font-size: 14px;
   font-weight: 300;
 }
