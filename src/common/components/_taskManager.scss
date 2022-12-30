@@ -7,15 +7,14 @@
     font-weight: 300;
     padding: 4px 8px;
     border-radius: 4px;
+    color: #ffff;
   }
 
   .task_left {
-    color: #ffff;
-    background-color: rgb(228, 92, 74);
+    background-color: rgb(231, 100, 76);
   }
 
   .task_done {
-    color: #ffff;
     background-color: $color_task_done;
   }
 }

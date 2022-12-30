@@ -33,16 +33,13 @@ function App() {
     const newTaskList = taskList.filter((task) => {
       return task.id !== id;
     });
-    // Set task list again after deleting a task↓
     setTaskList(newTaskList);
-    // Save new task list on localStorage↓
     localStorage.setItem("taskList", JSON.stringify(newTaskList));
   };
 
   const handleEditTask = (id, data) => {
     const newTaskList = taskList.map((task) => {
       if (task.id === id) {
-        // Update new data for the task that edited↓
         task.title = data;
       }
       return task;
@@ -53,7 +50,6 @@ function App() {
 
   const handleChangeTaskStastus = (id) => {
     const newTaskList = taskList.map((task) => {
-      //Find the task have status changed↓
       if (task.id === id) {
         task.status = !task.status;
       }

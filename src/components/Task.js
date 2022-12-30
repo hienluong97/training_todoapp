@@ -18,21 +18,25 @@ function Task({
   handleEditTask,
   handleChangeTaskStastus,
 }) {
-  const [disabled, setDisabled] = useState(true);
+  const [isReadOnly, setReadOnly] = useState(true);
   const [inputValue, setInputValue] = useState(task.title);
   const inputRef = useRef();
-  const errorRef = useRef();
 
-  //   Set cursor at the end in the textarea when focus
+  //   Set cursor at the end of textarea when focus
   useEffect(() => {
-    if (!disabled) {
+    if (!isReadOnly) {
       inputRef.current.focus();
       inputRef.current.setSelectionRange(
         inputRef.current.value.length,
         inputRef.current.value.length
       );
     }
-  }, [disabled]);
+  }, [isReadOnly]);
+
+  const handleClickSaveBtn = (id, data) => {
+    setReadOnly(true);
+    handleEditTask(id, data);
+  };
 
   return (
     <div className={task.status ? "task task_completed" : "task"}>
@@ -49,24 +53,21 @@ function Task({
           className={task.status ? "task_title line-through" : "task_title"}
           ref={inputRef}
           value={inputValue}
-          disabled={disabled}
+          readOnly={isReadOnly}
           onChange={(e) => {
             setInputValue(e.target.value);
           }}
-          // onBlur={() => {
-          //   handleBlur();
-          // }}
         />
         <span className="task_createTime">{formatTime(task.created_at)}</span>
       </div>
 
       <div className="task_btn">
-        {disabled ? (
+        {isReadOnly ? (
           <>
             <span
               className="task_btn_edit"
               onClick={() => {
-                setDisabled(false);
+                setReadOnly(false);
               }}
             >
               <EditIcon />
@@ -84,9 +85,7 @@ function Task({
           <span
             className="task_btn_save"
             onClick={() => {
-              setDisabled(true);
-              handleEditTask(task.id, inputRef.current.value);
-              errorRef.current.innerHTML = "";
+              handleClickSaveBtn(task.id, inputValue);
             }}
           >
             Save

@@ -28,9 +28,9 @@ function InputForm({ taskList, setTaskList }) {
       };
       const newTaskList = [newTask, ...taskList];
       setTaskList(newTaskList);
+      localStorage.setItem("taskList", JSON.stringify(newTaskList));
       inputRef.current.value = "";
       inputRef.current.focus();
-      localStorage.setItem("taskList", JSON.stringify(newTaskList));
     } else {
       // Show error message when user hasn't typed any thing↓
       errorRef.current.innerHTML = "Please write somethings!";
@@ -41,8 +41,6 @@ function InputForm({ taskList, setTaskList }) {
 
   const handleOnKeyPress = (event) => {
     if (event.key === "Enter") {
-      // Cancel the default action, if needed
-      event.preventDefault();
       handleClickAddTask();
     }
   };
