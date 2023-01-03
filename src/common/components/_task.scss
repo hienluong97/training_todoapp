@@ -1,4 +1,4 @@
-@import "../innit/init";
+@import "../init/init";
 .task {
   display: flex;
   align-items: center;
@@ -41,25 +41,14 @@
 
   .task_btn {
     display: flex;
-    justify-content: right;
-    min-width: 48px;
+    gap: 8px;
 
-    .task_btn_edit {
+    .task_btn_action {
       cursor: pointer;
       opacity: 0.6;
     }
 
-    .task_btn_edit:hover {
-      opacity: 1;
-    }
-
-    .task_btn_delete {
-      margin-left: 8px;
-      cursor: pointer;
-      opacity: 0.6;
-    }
-
-    .task_btn_delete:hover {
+    .task_btn_action:hover {
       opacity: 1;
     }
   }

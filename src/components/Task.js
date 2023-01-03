@@ -39,7 +39,7 @@ function Task({
 
       <div className="task_btn">
         <span
-          className="task_btn_edit"
+          className="task_btn_action"
           onClick={() => {
             setShowModal(true);
           }}
@@ -47,7 +47,7 @@ function Task({
           <EditIcon />
         </span>
         <span
-          className="task_btn_delete"
+          className="task_btn_action"
           onClick={() => {
             handleDeleteTask(task.id);
           }}
@@ -68,7 +68,7 @@ function Task({
 
 export default Task;
 
-function EditIcon(props) {
+function EditIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ function EditIcon(props) {
   );
 }
 
-function DeleteIcon(props) {
+function DeleteIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

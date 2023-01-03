@@ -30,7 +30,7 @@ function TaskManager({ taskList }) {
         {tasksDone <= 1 ? `${tasksDone} task done` : `${tasksDone} tasks done`}
       </span>
       <span className="task_tag task_left">
-        {tasksLeft <= 1 ? `${tasksLeft} task done` : `${tasksLeft} tasks done`}
+        {tasksLeft <= 1 ? `${tasksLeft} task left` : `${tasksLeft} tasks left`}
       </span>
     </div>
   );

@@ -1,4 +1,4 @@
-@import "../innit/init";
+@import "../init/init";
 .taskEdit_modal {
   position: fixed;
   top: 0;
@@ -15,14 +15,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 8px;
-    padding: 24px;
-    padding-bottom: 18px;
+    padding: 12px;
+    padding-bottom: 8px;
     background: #ffff;
     @include Responsive(tablet) {
       width: 600px;
+      padding: 24px;
+      padding-bottom: 18px;
     }
     @include Responsive(pc) {
       width: 800px;
+      padding: 24px;
+      padding-bottom: 18px;
     }
 
     .taskEdit_title {
