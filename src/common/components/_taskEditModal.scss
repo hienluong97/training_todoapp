@@ -1,0 +1,86 @@
+@import "../innit/init";
+.taskEdit_modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  .taskEdit_modal_inner {
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    padding: 24px;
+    padding-bottom: 18px;
+    background: #ffff;
+    @include Responsive(tablet) {
+      width: 600px;
+    }
+    @include Responsive(pc) {
+      width: 800px;
+    }
+
+    .taskEdit_title {
+      width: calc(100% - 8px);
+      padding: 4px;
+      outline: none;
+      border: 1px solid $btn_blue;
+      border-radius: 8px;
+      resize: none;
+      min-height: 80px;
+      font-size: 18px;
+      font-weight: 600;
+      color: black;
+      background: #ffff;
+
+      @include Responsive(tablet) {
+        width: calc(600px - 16px);
+        padding: 8px;
+        min-height: 100px;
+      }
+      @include Responsive(pc) {
+        width: calc(800px - 16px);
+        padding: 8px;
+        min-height: 100px;
+      }
+    }
+
+    .taskEdit_btn_group {
+      display: flex;
+      justify-content: right;
+      gap: 8px;
+      margin-top: 4px;
+
+      .taskEdit_btn {
+        font-size: 14px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn_cancel {
+        border: 1px solid rgb(184, 181, 181);
+      }
+
+      .btn_cancel:hover {
+        background-color: rgb(224, 221, 221);
+      }
+
+      .btn_save {
+        border: 1px solid $btn_blue;
+        background-color: $btn_blue;
+        color: #ffff;
+      }
+
+      .btn_save:hover {
+        background-color: $btn_hover_blue;
+      }
+    }
+  }
+}

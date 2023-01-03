@@ -1,5 +1,7 @@
 @import "./common/mixins/media";
 .app {
+  background-color: #ecedf6ff;
+  min-height: 100vh;
   padding: 40px 12px;
 
   @include Responsive(tablet) {

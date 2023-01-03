@@ -19,15 +19,17 @@ function TaskList({
 }) {
   return (
     <div className="task_list">
-      {taskList.map((task) => (
-        <Task
-          key={task.id}
-          task={task}
-          handleDeleteTask={handleDeleteTask}
-          handleEditTask={handleEditTask}
-          handleChangeTaskStastus={handleChangeTaskStastus}
-        />
-      ))}
+      <ul className="task_list_items">
+        {taskList.map((task) => (
+          <Task
+            key={task.id}
+            task={task}
+            handleDeleteTask={handleDeleteTask}
+            handleEditTask={handleEditTask}
+            handleChangeTaskStastus={handleChangeTaskStastus}
+          />
+        ))}
+      </ul>
     </div>
   );
 }

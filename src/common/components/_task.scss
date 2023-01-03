@@ -1,5 +1,4 @@
-@import "../variables";
-@import "../mixins/media";
+@import "../innit/init";
 .task {
   display: flex;
   align-items: center;
@@ -8,7 +7,6 @@
   padding: 12px 12px;
   border-radius: 4px;
   transition: 0.3s;
-  margin-bottom: 12px;
 
   .task_checkbox {
     transform: scale(calc(16 / 13));
@@ -28,20 +26,17 @@
 
   .task_title {
     width: 100%;
-    outline: none;
-    border: none;
-    background: none;
     font-size: 18px;
     font-weight: 600;
+    line-height: calc(22 / 18);
     color: black;
-    resize: none;
-    height: 20px;
   }
 
   .task_createTime {
     font-size: 14px;
     font-weight: 300;
     font-style: italic;
+    margin-top: 4px;
   }
 
   .task_btn {
@@ -65,21 +60,6 @@
     }
 
     .task_btn_delete:hover {
-      opacity: 1;
-    }
-
-    .task_btn_save {
-      background-color: $btn_blue;
-      color: #ffff;
-      padding: 4px 8px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: 0.3s;
-      margin-left: 8px;
-    }
-
-    .task_btn_save:hover {
-      background-color: $btn_hover_blue;
       opacity: 1;
     }
   }

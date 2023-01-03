@@ -26,8 +26,12 @@ function TaskManager({ taskList }) {
 
   return (
     <div className="task_manager">
-      <span className="task_tag task_done"> {tasksDone} tasks done</span>{" "}
-      <span className="task_tag task_left"> {tasksLeft} tasks left</span>
+      <span className="task_tag task_done">
+        {tasksDone === 0 ? `${tasksDone} task done` : `${tasksDone} tasks done`}
+      </span>
+      <span className="task_tag task_left">
+        {tasksLeft === 0 ? `${tasksLeft} task done` : `${tasksLeft} tasks done`}
+      </span>
     </div>
   );
 }

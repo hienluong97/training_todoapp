@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import "../common/components/_task.scss";
-import TextArea from "textarea-autosize-reactjs";
+import TaskEditModal from "./TaskEditModal";
 import { formatTime } from "../utils/functions";
 
 /**
@@ -18,28 +18,10 @@ function Task({
   handleEditTask,
   handleChangeTaskStastus,
 }) {
-  const [isReadOnly, setReadOnly] = useState(true);
-  const [inputValue, setInputValue] = useState(task.title);
-  const inputRef = useRef();
-
-  //   Set cursor at the end of textarea when focus
-  useEffect(() => {
-    if (!isReadOnly) {
-      inputRef.current.focus();
-      inputRef.current.setSelectionRange(
-        inputRef.current.value.length,
-        inputRef.current.value.length
-      );
-    }
-  }, [isReadOnly]);
-
-  const handleClickSaveBtn = (id, data) => {
-    setReadOnly(true);
-    handleEditTask(id, data);
-  };
+  const [isShowModal, setShowModal] = useState(false);
 
   return (
-    <div className={task.status ? "task task_completed" : "task"}>
+    <li className={task.status ? "task task_completed" : "task"}>
       <input
         type="checkbox"
         className="task_checkbox"
@@ -49,50 +31,38 @@ function Task({
         }}
       />
       <div className="task_content">
-        <TextArea
-          className={task.status ? "task_title line-through" : "task_title"}
-          ref={inputRef}
-          value={inputValue}
-          readOnly={isReadOnly}
-          onChange={(e) => {
-            setInputValue(e.target.value);
-          }}
-        />
+        <h5 className={task.status ? "task_title line-through" : "task_title"}>
+          {task.title}
+        </h5>
         <span className="task_createTime">{formatTime(task.created_at)}</span>
       </div>
 
       <div className="task_btn">
-        {isReadOnly ? (
-          <>
-            <span
-              className="task_btn_edit"
-              onClick={() => {
-                setReadOnly(false);
-              }}
-            >
-              <EditIcon />
-            </span>
-            <span
-              className="task_btn_delete"
-              onClick={() => {
-                handleDeleteTask(task.id);
-              }}
-            >
-              <DeleteIcon />
-            </span>
-          </>
-        ) : (
-          <span
-            className="task_btn_save"
-            onClick={() => {
-              handleClickSaveBtn(task.id, inputValue);
-            }}
-          >
-            Save
-          </span>
-        )}
+        <span
+          className="task_btn_edit"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
+          <EditIcon />
+        </span>
+        <span
+          className="task_btn_delete"
+          onClick={() => {
+            handleDeleteTask(task.id);
+          }}
+        >
+          <DeleteIcon />
+        </span>
       </div>
-    </div>
+      {isShowModal && (
+        <TaskEditModal
+          setShowModal={setShowModal}
+          task={task}
+          handleEditTask={handleEditTask}
+        />
+      )}
+    </li>
   );
 }
 
