@@ -24,7 +24,8 @@ function InputForm({ taskList, setTaskList }) {
         id: uuidv4(),
         title: inputRef.current.value,
         status: false,
-        created_at: new Date().getTime(),
+        // created_at: new Date().getTime(),
+        created_at: new Date(),
       };
       const newTaskList = [newTask, ...taskList];
       setTaskList(newTaskList);
