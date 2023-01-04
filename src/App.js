@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.scss";
 import InputForm from "./components/InputForm";
 import TaskList from "./components/TaskList";
 import TaskManager from "./components/TaskManager";

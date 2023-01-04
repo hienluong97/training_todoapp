@@ -1,6 +1,5 @@
 import React from "react";
 import Task from "./Task";
-import "../common/components/_taskList.scss";
 
 /**
  *  This component to render a list of tasks

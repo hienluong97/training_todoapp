@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import TextArea from "textarea-autosize-reactjs";
-import "../common/components/_taskEditModal.scss";
 
 /**
  *

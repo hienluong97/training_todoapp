@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import "../common/components/_inputForm.scss";
 import { v4 as uuidv4 } from "uuid";
 
 /**

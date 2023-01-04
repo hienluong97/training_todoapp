@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../common/components/_task.scss";
 import TaskEditModal from "./TaskEditModal";
 import { formatTime } from "../utils/functions";
 
