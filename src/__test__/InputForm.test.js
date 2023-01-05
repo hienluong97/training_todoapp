@@ -13,4 +13,12 @@ describe("Test input form component", () => {
     const buttonEl = screen.getByRole("button");
     expect(buttonEl).toBeInTheDocument();
   });
+
+  // test("has error when submit an invalid value", async () => {
+  //   render(<InputForm />);
+  //   const buttonEl = screen.getByRole("button");
+  //   const inputEl = await screen.findByTestId("form_input");
+  //   fireEvent.click(buttonEl);
+  //   expect(inputEl.textContent).toBeInTheDocument();
+  // });
 });

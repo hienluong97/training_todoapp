@@ -20,7 +20,10 @@ function Task({
   const [isShowModal, setShowModal] = useState(false);
 
   return (
-    <li className={task.status ? "task task_completed" : "task"}>
+    <li
+      className={task.status ? "task task_completed" : "task"}
+      data-testid="task"
+    >
       <input
         type="checkbox"
         className="task_checkbox"
