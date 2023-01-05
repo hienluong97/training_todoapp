@@ -23,7 +23,6 @@ function InputForm({ taskList, setTaskList }) {
         id: uuidv4(),
         title: inputRef.current.value,
         status: false,
-        // created_at: new Date().getTime(),
         created_at: new Date(),
       };
       const newTaskList = [newTask, ...taskList];
@@ -57,6 +56,7 @@ function InputForm({ taskList, setTaskList }) {
       <div className="form">
         <input
           ref={inputRef}
+          data-testid="form_input"
           className="form_input"
           onChange={handleOnchange}
           onBlur={handleOnBlur}
@@ -72,7 +72,11 @@ function InputForm({ taskList, setTaskList }) {
           Add task
         </button>
       </div>
-      <span ref={errorRef} className="form_error"></span>
+      <span
+        ref={errorRef}
+        className="form_error"
+        data-testid="form_error"
+      ></span>
     </>
   );
 }
