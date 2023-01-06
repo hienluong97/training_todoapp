@@ -21,11 +21,12 @@ function Task({
 
   return (
     <li
-      className={task.status ? "task task_completed" : "task"}
+      className={task.status ? "task task_completed" : "task "}
       data-testid="task"
     >
       <input
         type="checkbox"
+        data-testid="task_checkbox"
         className="task_checkbox"
         checked={task.status}
         onChange={() => {

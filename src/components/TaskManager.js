@@ -25,10 +25,10 @@ function TaskManager({ taskList }) {
 
   return (
     <div className="task_manager">
-      <span className="task_tag task_done">
+      <span className="task_tag task_done" data-testid="task_done">
         {tasksDone <= 1 ? `${tasksDone} task done` : `${tasksDone} tasks done`}
       </span>
-      <span className="task_tag task_left">
+      <span className="task_tag task_left" data-testid="task_left">
         {tasksLeft <= 1 ? `${tasksLeft} task left` : `${tasksLeft} tasks left`}
       </span>
     </div>
