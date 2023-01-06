@@ -22,7 +22,7 @@ function App() {
         id: 1,
         title: "Go out with friends 😎  ",
         status: false,
-        created_at: new Date().getTime(),
+        created_at: "2023-01-05T06:14:27.152Z",
       },
     ]
   );
