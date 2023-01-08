@@ -21,7 +21,7 @@ function Task({
 
   return (
     <li
-      className={task.status ? "task task_completed" : "task "}
+      className={task.status ? "task task_completed" : "task"}
       data-testid="task"
     >
       <input
@@ -42,6 +42,8 @@ function Task({
 
       <div className="task_btn">
         <span
+          data-testid="task_btn_action"
+          title="edit_btn"
           className="task_btn_action"
           onClick={() => {
             setShowModal(true);
@@ -50,6 +52,8 @@ function Task({
           <EditIcon />
         </span>
         <span
+          data-testid="task_btn_action"
+          title="delete_btn"
           className="task_btn_action"
           onClick={() => {
             handleDeleteTask(task.id);

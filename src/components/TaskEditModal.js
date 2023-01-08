@@ -28,9 +28,10 @@ function TaskEditModal({ task, setShowModal, handleEditTask }) {
   };
 
   return (
-    <div className="taskEdit_modal">
+    <div className="taskEdit_modal" data-testid="taskEdit_modal">
       <div className="taskEdit_modal_inner">
         <TextArea
+          data-testid="taskEdit_title"
           className="taskEdit_title"
           ref={inputRef}
           value={inputValue}
@@ -41,6 +42,7 @@ function TaskEditModal({ task, setShowModal, handleEditTask }) {
         <div className="taskEdit_btn_group">
           <span
             className="taskEdit_btn btn_cancel"
+            data-testid="taskEdit_btn_cancel"
             onClick={() => {
               setShowModal(false);
             }}
@@ -49,6 +51,7 @@ function TaskEditModal({ task, setShowModal, handleEditTask }) {
           </span>
           <span
             className="taskEdit_btn btn_save"
+            data-testid="taskEdit_btn_save"
             onClick={() => {
               handleClickSaveBtn(task.id, inputValue);
             }}

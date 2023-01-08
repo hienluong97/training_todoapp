@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import TaskManager from "../components/TaskManager";
 
-describe("Test TaskManager component", () => {
+describe("TaskManager", () => {
   test("should render the correct amount of complete tasks, incomplete tasks", () => {
     const taskList = [
       {
@@ -87,5 +87,33 @@ describe("Test TaskManager component", () => {
     const taskLeftEl = screen.getByTestId("task_left");
     expect(taskDoneEl).toHaveTextContent("2 tasks done");
     expect(taskLeftEl).toHaveTextContent("2 tasks left");
+  });
+
+  test("completed task tag should class 'task_done'", () => {
+    const taskList = [
+      {
+        id: "56deeba2-9f3e-4b4b-9b80-ddc19db6856e",
+        title: "Buy coffee",
+        status: true,
+        created_at: "2023-01-06T01:43:02.731Z",
+      },
+    ];
+    render(<TaskManager taskList={taskList} />);
+    const taskDoneEl = screen.getByTestId("task_done");
+    expect(taskDoneEl).toHaveClass("task_done");
+  });
+
+  test("incompleted task tag should class 'task_left'", () => {
+    const taskList = [
+      {
+        id: "56deeba2-9f3e-4b4b-9b80-ddc19db6856e",
+        title: "Buy coffee",
+        status: true,
+        created_at: "2023-01-06T01:43:02.731Z",
+      },
+    ];
+    render(<TaskManager taskList={taskList} />);
+    const taskLeftEl = screen.getByTestId("task_left");
+    expect(taskLeftEl).toHaveClass("task_left");
   });
 });

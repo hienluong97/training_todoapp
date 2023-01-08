@@ -17,7 +17,7 @@ function TaskList({
   handleChangeTaskStastus,
 }) {
   return (
-    <div className="task_list">
+    <div className="task_list" data-testid="task_list">
       <ul className="task_list_items">
         {taskList.map((task) => (
           <Task
