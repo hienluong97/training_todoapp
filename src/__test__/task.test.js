@@ -74,7 +74,7 @@ describe("Task", () => {
     expect(btnEls[0]).toHaveClass("task_btn_action");
   });
 
-  test("edit modal should be showed when click edit btn", async () => {
+  test("edit modal should be showed when user click edit btn", async () => {
     const task = {
       id: "1",
       title: "Go out",

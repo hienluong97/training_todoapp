@@ -8,7 +8,7 @@ describe("InputForm", () => {
     expect(inputEl).toBeInTheDocument();
   });
 
-  test("should be able to type in input", async () => {
+  test("input form should be able to type", async () => {
     render(<InputForm />);
     const inputEl = await screen.findByTestId("form_input");
     fireEvent.change(inputEl, { target: { value: "Go shopping" } });
@@ -27,9 +27,8 @@ describe("InputForm", () => {
     expect(errorEl).toBeInTheDocument();
   });
 
-  test("should have empty input when add button is clicked", async () => {
+  test("input form should have empty value when 'add task' button is clicked", async () => {
     const taskList = [];
-
     const mockedSetTaskList = jest.fn();
     render(<InputForm taskList={taskList} setTaskList={mockedSetTaskList} />);
     const inputEl = await screen.findByTestId("form_input");
@@ -39,7 +38,7 @@ describe("InputForm", () => {
     expect(inputEl.value).toBe("");
   });
 
-  test("cursor should be focus immediately on input form when add button is clicked", async () => {
+  test("cursor should be focus immediately on input form when 'add task' button is clicked", async () => {
     const taskList = [];
     const mockedSetTaskList = jest.fn();
     render(<InputForm taskList={taskList} setTaskList={mockedSetTaskList} />);
@@ -50,7 +49,7 @@ describe("InputForm", () => {
     expect(inputEl).toHaveFocus();
   });
 
-  test("error mesage should be render when submit a empty value", async () => {
+  test("error message should be rendered when user submit a empty value", async () => {
     render(<InputForm />);
     const inputEl = await screen.findByTestId("form_input");
     const buttonEl = screen.getByRole("button");
@@ -60,7 +59,7 @@ describe("InputForm", () => {
     expect(errorEl).toHaveTextContent("Please write somethings!");
   });
 
-  test("error mesage should be hide when user typing", async () => {
+  test("error message should be hiden when user is typing", async () => {
     render(<InputForm />);
     const inputEl = await screen.findByTestId("form_input");
     const errorEl = await screen.findByTestId("form_error");
@@ -68,7 +67,7 @@ describe("InputForm", () => {
     expect(errorEl).toHaveTextContent("");
   });
 
-  test("should have empty input when press enter", async () => {
+  test("input form should have empty value when user press enter key", async () => {
     const taskList = [];
     const mockedSetTaskList = jest.fn();
     render(<InputForm taskList={taskList} setTaskList={mockedSetTaskList} />);
@@ -78,7 +77,7 @@ describe("InputForm", () => {
     expect(inputEl.value).toBe("");
   });
 
-  test("cursor should be focus immediately on input form when pressed enter", async () => {
+  test("cursor should be focus immediately on input form when user press enter key", async () => {
     const taskList = [];
     const mockedSetTaskList = jest.fn();
     render(<InputForm taskList={taskList} setTaskList={mockedSetTaskList} />);
@@ -88,7 +87,7 @@ describe("InputForm", () => {
     expect(inputEl).toHaveFocus();
   });
 
-  test("error mesage should be render when when pressed enter to submit a empty value", async () => {
+  test("error message should be rendered when user press enter key to submit a empty value", async () => {
     const taskList = [];
     const mockedSetTaskList = jest.fn();
     render(<InputForm taskList={taskList} setTaskList={mockedSetTaskList} />);
