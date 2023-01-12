@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { TaskListContext } from "../contexts/TaskListConText";
 
 /**
  * This component to show number of completed tasks, incompleted tasks
@@ -10,7 +11,9 @@ import React, { useEffect, useState } from "react";
  * @returns Number of completed tasks, incompleted tasks
  */
 
-function TaskManager({ taskList }) {
+function TaskManager() {
+  const taskListContext = useContext(TaskListContext);
+  const { taskList } = taskListContext;
   const [tasksDone, setTasksDone] = useState();
   const [tasksLeft, setTasksLeft] = useState();
 

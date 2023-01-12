@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import Task from "./Task";
+import { TaskListContext } from "../contexts/TaskListConText";
 
 /**
  *  This component to render a list of tasks
@@ -10,12 +11,40 @@ import Task from "./Task";
  * @returns List of task component
  */
 
-function TaskList({
-  taskList,
-  handleDeleteTask,
-  handleEditTask,
-  handleChangeTaskStastus,
-}) {
+function TaskList() {
+  const taskListContext = useContext(TaskListContext);
+  const { taskList, setTaskList } = taskListContext;
+
+  const handleDeleteTask = (id) => {
+    const newTaskList = taskList.filter((task) => {
+      return task.id !== id;
+    });
+    setTaskList(newTaskList);
+    localStorage.setItem("taskList", JSON.stringify(newTaskList));
+  };
+
+  const handleEditTask = (id, data) => {
+    const newTaskList = taskList.map((task) => {
+      if (task.id === id) {
+        task.title = data;
+      }
+      return task;
+    });
+    setTaskList(newTaskList);
+    localStorage.setItem("taskList", JSON.stringify(newTaskList));
+  };
+
+  const handleChangeTaskStastus = (id) => {
+    const newTaskList = taskList.map((task) => {
+      if (task.id === id) {
+        task.status = !task.status;
+      }
+      return task;
+    });
+    setTaskList(newTaskList);
+    localStorage.setItem("taskList", JSON.stringify(newTaskList));
+  };
+
   return (
     <div className="task_list" data-testid="task_list">
       <ul className="task_list_items">
@@ -23,9 +52,9 @@ function TaskList({
           <Task
             key={task.id}
             task={task}
+            handleChangeTaskStastus={handleChangeTaskStastus}
             handleDeleteTask={handleDeleteTask}
             handleEditTask={handleEditTask}
-            handleChangeTaskStastus={handleChangeTaskStastus}
           />
         ))}
       </ul>

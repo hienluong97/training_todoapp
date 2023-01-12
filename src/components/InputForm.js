@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { TaskListContext } from "../contexts/TaskListConText";
 
 /**
  * This component to render a input form for user to add a new task
@@ -11,7 +12,9 @@ import { v4 as uuidv4 } from "uuid";
  * @returns A input form
  */
 
-function InputForm({ taskList, setTaskList }) {
+function InputForm() {
+  const taskListContext = useContext(TaskListContext);
+  const { taskList, setTaskList } = taskListContext;
   const inputRef = useRef();
   const errorRef = useRef();
 

@@ -13,9 +13,9 @@ import { formatTime } from "../utils/functions";
 
 function Task({
   task,
+  handleChangeTaskStastus,
   handleDeleteTask,
   handleEditTask,
-  handleChangeTaskStastus,
 }) {
   const [isShowModal, setShowModal] = useState(false);
 

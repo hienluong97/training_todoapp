@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext, createContext } from "react";
 import InputForm from "./components/InputForm";
 import TaskList from "./components/TaskList";
 import TaskManager from "./components/TaskManager";
@@ -14,61 +14,15 @@ import TaskManager from "./components/TaskManager";
  * @returns Return UI of App
  */
 
+export const TaskListContext = createContext();
+
 function App() {
-  const currentTaskList = JSON.parse(localStorage.getItem("taskList"));
-  const [taskList, setTaskList] = useState(
-    currentTaskList || [
-      {
-        id: 1,
-        title: "Go out with friends 😎  ",
-        status: false,
-        created_at: "2023-01-05T06:14:27.152Z",
-      },
-    ]
-  );
-
-  const handleDeleteTask = (id) => {
-    //Filter to get all task that have id except the id of task deleted↓
-    const newTaskList = taskList.filter((task) => {
-      return task.id !== id;
-    });
-    setTaskList(newTaskList);
-    localStorage.setItem("taskList", JSON.stringify(newTaskList));
-  };
-
-  const handleEditTask = (id, data) => {
-    const newTaskList = taskList.map((task) => {
-      if (task.id === id) {
-        task.title = data;
-      }
-      return task;
-    });
-    setTaskList(newTaskList);
-    localStorage.setItem("taskList", JSON.stringify(newTaskList));
-  };
-
-  const handleChangeTaskStastus = (id) => {
-    const newTaskList = taskList.map((task) => {
-      if (task.id === id) {
-        task.status = !task.status;
-      }
-      return task;
-    });
-    setTaskList(newTaskList);
-    localStorage.setItem("taskList", JSON.stringify(newTaskList));
-  };
-
   return (
     <div className="app">
       <h1 className="app_title">Todo List</h1>
-      <InputForm taskList={taskList} setTaskList={setTaskList} />
-      <TaskList
-        taskList={taskList}
-        handleDeleteTask={handleDeleteTask}
-        handleEditTask={handleEditTask}
-        handleChangeTaskStastus={handleChangeTaskStastus}
-      />
-      <TaskManager taskList={taskList} />
+      <InputForm />
+      <TaskList />
+      <TaskManager />
     </div>
   );
 }
